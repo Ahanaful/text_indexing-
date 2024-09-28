@@ -1,0 +1,43 @@
+mode: 1  file: tobe.txt
+
+-- Original data --
+  i  |   pointers[i]    | word
+-----|------------------|------------------
+   0 |   0x55a3e3e69890 | To
+   1 |   0x55a3e3e69893 | be
+   2 |   0x55a3e3e69897 | or
+   3 |   0x55a3e3e6989a | not
+   4 |   0x55a3e3e6989e | to
+   5 |   0x55a3e3e698a1 | be
+   6 |   0x55a3e3e698a5 | that
+   7 |   0x55a3e3e698aa | is
+   8 |   0x55a3e3e698ad | the
+   9 |   0x55a3e3e698b1 | question
+
+-- Clean and sorted data --
+  i  |   pointers[i]    | word
+-----|------------------|------------------
+   0 |   0x55a3e3e69893 | be
+   1 |   0x55a3e3e698a1 | be
+   2 |   0x55a3e3e698aa | is
+   3 |   0x55a3e3e6989a | not
+   4 |   0x55a3e3e69897 | or
+   5 |   0x55a3e3e698b1 | question
+   6 |   0x55a3e3e698a5 | that
+   7 |   0x55a3e3e698ad | the
+   8 |   0x55a3e3e69890 | to
+   9 |   0x55a3e3e6989e | to
+
+-- Binary search --
+be
+4, 1, (2 iterations) found
+it
+4, 1, 2, 3, (4 iterations) not found
+is
+4, 1, 2, (3 iterations) found
+that
+4, 7, 5, 6, (4 iterations) found
+small
+4, 7, 5, 6, (4 iterations) not found
+two
+4, 7, 8, 9, (4 iterations) not found

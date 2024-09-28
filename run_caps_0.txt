@@ -1,0 +1,35 @@
+mode: 0  file: caps.txt
+
+-- Original data --
+0 THIS
+1 IS
+2 A
+3 SMALL
+4 EXAMPLE
+5 IT
+6 HAS
+7 TWO
+8 SENTENCES
+
+-- Clean and sorted data --
+0 a
+1 example
+2 has
+3 is
+4 it
+5 sentences
+6 small
+7 this
+8 two
+
+-- Binary search --
+that
+4, 6, 7, (3 iterations) not found
+it
+4, (1 iterations) found
+is
+4, 1, 2, 3, (4 iterations) found
+small
+4, 6, (2 iterations) found
+two
+4, 6, 7, 8, (4 iterations) found

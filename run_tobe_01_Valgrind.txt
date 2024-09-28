@@ -1,0 +1,119 @@
+valgrind --leak-check=full ./a.out 0 tobe.txt
+==214== Memcheck, a memory error detector
+==214== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==214== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
+==214== Command: ./a.out 0 tobe.txt
+==214==
+mode: 0  file: tobe.txt
+
+-- Original data --
+0 To
+1 be
+2 or
+3 not
+4 to
+5 be
+6 that
+7 is
+8 the
+9 question
+
+-- Clean and sorted data --
+0 be
+1 be
+2 is
+3 not
+4 or
+5 question
+6 that
+7 the
+8 to
+9 to
+
+-- Binary search --
+be
+4, 1, (2 iterations) found
+it
+4, 1, 2, 3, (4 iterations) not found
+is
+4, 1, 2, (3 iterations) found
+that
+4, 7, 5, 6, (4 iterations) found
+small
+4, 7, 5, 6, (4 iterations) not found
+two
+4, 7, 8, 9, (4 iterations) not found
+==214==
+==214== HEAP SUMMARY:
+==214==     in use at exit: 0 bytes in 0 blocks
+==214==   total heap usage: 5 allocs, 5 frees, 15,677 bytes allocated
+==214==
+==214== All heap blocks were freed -- no leaks are possible
+==214==
+==214== For lists of detected and suppressed errors, rerun with: -s
+==214== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+
+
+
+
+
+
+
+valgrind --leak-check=full ./a.out 1 tobe.txt
+==211== Memcheck, a memory error detector
+==211== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==211== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
+==211== Command: ./a.out 1 tobe.txt
+==211==
+mode: 1  file: tobe.txt
+
+-- Original data --
+  i  |   pointers[i]    | word
+-----|------------------|------------------
+   0 |        0x4a486a0 | To
+   1 |        0x4a486a3 | be
+   2 |        0x4a486a7 | or
+   3 |        0x4a486aa | not
+   4 |        0x4a486ae | to
+   5 |        0x4a486b1 | be
+   6 |        0x4a486b5 | that
+   7 |        0x4a486ba | is
+   8 |        0x4a486bd | the
+   9 |        0x4a486c1 | question
+
+-- Clean and sorted data --
+  i  |   pointers[i]    | word
+-----|------------------|------------------
+   0 |        0x4a486a3 | be
+   1 |        0x4a486b1 | be
+   2 |        0x4a486ba | is
+   3 |        0x4a486aa | not
+   4 |        0x4a486a7 | or
+   5 |        0x4a486c1 | question
+   6 |        0x4a486b5 | that
+   7 |        0x4a486bd | the
+   8 |        0x4a486a0 | to
+   9 |        0x4a486ae | to
+
+-- Binary search --
+be
+4, 1, (2 iterations) found
+it
+4, 1, 2, 3, (4 iterations) not found
+is
+4, 1, 2, (3 iterations) found
+that
+4, 7, 5, 6, (4 iterations) found
+small
+4, 7, 5, 6, (4 iterations) not found
+two
+4, 7, 8, 9, (4 iterations) not found
+==211==
+==211== HEAP SUMMARY:
+==211==     in use at exit: 0 bytes in 0 blocks
+==211==   total heap usage: 5 allocs, 5 frees, 15,677 bytes allocated
+==211==
+==211== All heap blocks were freed -- no leaks are possible
+==211==
+==211== For lists of detected and suppressed errors, rerun with: -s
+==211== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
